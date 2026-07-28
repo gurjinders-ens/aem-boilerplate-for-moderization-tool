@@ -1,0 +1,16 @@
+:root {
+  --heading-font-family: "Roboto", roboto-fallback, sans-serif;
+  --body-font-family: "Roboto", roboto-fallback, sans-serif;
+  --background-color: rgb(240 235 226);
+  --text-color: rgb(0 0 0);
+  --link-color: rgb(72 71 69);
+  --link-hover-color: rgb(0 0 0);
+  --section-padding: 0;
+  --nav-height: 139px;
+  --heading-size-xxl: 36px;
+  --heading-size-xl: 30px;
+  --heading-size-l: 30px;
+  --heading-size-m: 24px;
+  --heading-size-s: 20px;
+  --heading-size-xs: 18px;
+}

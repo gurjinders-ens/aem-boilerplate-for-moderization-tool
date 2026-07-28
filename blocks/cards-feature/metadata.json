@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-28T15:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://main--eds-react-coleman--ensemble-software.aem.live/",
+    "originPage": "Coleman brand landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + eyebrow + title + description + CTAs",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product-category feature grids",
+      "brand-story card sets",
+      "any uniform image + heading + description + CTA card grid"
+    ],
+    "notSuitableFor": [
+      "text-only cards (use cards no-images variant)",
+      "rotating galleries (use carousel)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-28T15:07:00.000Z"
+  }
+}

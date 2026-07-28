@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-hero",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-28T15:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://main--eds-react-coleman--ensemble-software.aem.live/",
+    "originPage": "Coleman brand landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "wide",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "intro image + paragraph + 2 links | side image",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "hero-style intro regions with side-by-side image and text",
+      "full-bleed background landing intros",
+      "two-region promotional headers"
+    ],
+    "notSuitableFor": [
+      "repeating card grids",
+      "simple single-column text sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-28T15:07:00.000Z"
+  }
+}

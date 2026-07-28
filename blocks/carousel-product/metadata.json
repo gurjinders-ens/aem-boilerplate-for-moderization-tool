@@ -1,0 +1,38 @@
+{
+  "variantName": "carousel-product",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-07-28T15:07:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://main--eds-react-coleman--ensemble-software.aem.live/",
+    "originPage": "Coleman brand landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "product",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image | title + price + product link (optional Best Seller badge)",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product showcase sliders",
+      "new arrivals / top picks carousels",
+      "swipable galleries of linked items with prices"
+    ],
+    "notSuitableFor": [
+      "single featured item (no rotation needed)",
+      "static comparison layouts (use columns)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-28T15:07:00.000Z"
+  }
+}

@@ -1,0 +1,203 @@
+/* carousel-product: horizontal product shelf (matches source .slider) */
+
+.carousel-product {
+  position: relative;
+}
+
+.carousel-product .carousel-product-slides-container {
+  position: relative;
+}
+
+.carousel-product .carousel-product-slides {
+  list-style: none;
+  margin: 0;
+  padding: 16px 4px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0;
+  align-items: stretch;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  overflow: auto hidden;
+}
+
+.carousel-product .carousel-product-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each product card */
+.carousel-product .carousel-product-slide {
+  flex: 0 0 auto;
+  width: 70%;
+  max-width: 256px;
+  padding: 12px;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255 255 255);
+  box-shadow: rgb(38 38 38 / 10%) 0 0 8px 0;
+  color: rgb(72 71 69);
+}
+
+/* Image cell */
+.carousel-product .carousel-product-slide-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-product .carousel-product-slide-image picture,
+.carousel-product .carousel-product-slide-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* Best Seller badge overlaid on the image cell */
+.carousel-product .carousel-product-slide-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 2px 8px;
+  background-color: rgb(52 48 43);
+  color: rgb(255 255 255);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  border-radius: 0 0 2px 2px;
+  z-index: 1;
+}
+
+/* Content cell */
+.carousel-product .carousel-product-slide-content {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 0;
+  text-align: left;
+}
+
+.carousel-product .carousel-product-slide-content p {
+  margin: 0;
+}
+
+/* Product title -- reset EDS auto button decoration back to plain text */
+.carousel-product .carousel-product-slide-title {
+  margin: 5px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgb(72 71 69);
+}
+
+.carousel-product .carousel-product-slide-title a.button:any-link,
+.carousel-product .carousel-product-slide-title a:any-link {
+  display: inline;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  max-width: none;
+  background-color: transparent;
+  color: rgb(72 71 69);
+  font: inherit;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.carousel-product .carousel-product-slide-title a:hover {
+  text-decoration: none;
+  color: rgb(0 0 0);
+}
+
+/* Price */
+.carousel-product .carousel-product-slide-price {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgb(72 71 69);
+}
+
+/* Prev/Next chevron controls */
+.carousel-product .carousel-product-navigation-buttons {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.carousel-product .carousel-product-navigation-buttons button {
+  pointer-events: auto;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border-radius: 40px;
+  background-color: rgb(255 255 255);
+  box-shadow: rgb(38 38 38 / 10%) 0 4px 8px 0;
+  color: rgb(0 0 0);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.carousel-product .carousel-product-navigation-buttons button:hover,
+.carousel-product .carousel-product-navigation-buttons button:focus-visible {
+  background-color: rgb(240 235 226);
+}
+
+.carousel-product .carousel-product-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid;
+  border-bottom: 0;
+  border-left: 0;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-product .carousel-product-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* Hide the slide indicator dots -- source uses a continuous shelf */
+.carousel-product .carousel-product-slide-indicators,
+.carousel-product nav[aria-label='Carousel Slide Controls'] {
+  display: none;
+}
+
+@media (width >= 600px) {
+  .carousel-product .carousel-product-slide {
+    width: 40%;
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-product .carousel-product-slide {
+    width: 20%;
+  }
+}
