@@ -39,7 +39,7 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 140px;
 }
 
 /* fallback fonts */
@@ -297,24 +297,31 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* sections — source uses flush (0-gap) full-width sections with 64px
+   vertical padding and edge-to-edge content (no max-width cap) */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
+  padding: 64px 32px;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: none;
   margin: auto;
-  padding: 0 24px;
+}
+
+/* full-bleed sections (hero, promo) manage their own padding */
+main > .section.columns-hero-container,
+main > .section.promo-banner-container {
+  padding: 0;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+@media (width < 900px) {
+  main > .section {
+    padding: 32px 16px;
   }
 }
 
