@@ -1,0 +1,73 @@
+/* Email/SMS signup — visual form matching the source. */
+.email-signup.block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+.email-signup .email-signup-label {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.email-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-signup-field {
+  display: flex;
+  max-width: 500px;
+}
+
+.email-signup-field input {
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  height: 48px;
+  border: 1px solid #000;
+  border-right: 0;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 16px;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+.email-signup-field button {
+  flex: 0 0 auto;
+  height: 48px;
+  margin: 0;
+  border: 1px solid var(--link-color);
+  border-radius: 0;
+  padding: 5px 30px;
+  background-color: var(--link-color);
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.email-signup-optin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.email-signup-optin input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.email-signup-info p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-color);
+}

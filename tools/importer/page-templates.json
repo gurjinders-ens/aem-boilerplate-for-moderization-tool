@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "projectType": "doc"
+  },
+  "templates": [
+    {
+      "name": "landing-page",
+      "urls": [
+        "https://main--eds-react-coleman--ensemble-software.aem.live/"
+      ],
+      "representativeUrl": "https://main--eds-react-coleman--ensemble-software.aem.live/",
+      "coverageGaps": [],
+      "description": "Coleman brand landing page: hero (columns), product category feature grid (cards), promo banner, product carousel, brand-story cards, and email/SMS signup section.",
+      "blocks": [
+        {
+          "name": "columns-hero",
+          "instances": [
+            "body > main > div.section.full-width.columns-container"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "body > main > div.section.cards-container:nth-of-type(2)",
+            "body > main > div.section.cards-container:nth-of-type(5)"
+          ]
+        },
+        {
+          "name": "carousel-product",
+          "instances": [
+            "body > main > div.section.carousel-container"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero",
+          "selector": "body > main > div.section.full-width.columns-container",
+          "style": null,
+          "blocks": [
+            "columns-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Product Category Grid",
+          "selector": "body > main > div.section.cards-container:nth-of-type(2)",
+          "style": null,
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Promo Banner",
+          "selector": "body > main > div.section.full-width.promo-banner-container",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "body > main > div.section.full-width.promo-banner-container"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "New Arrivals Carousel",
+          "selector": "body > main > div.section.carousel-container",
+          "style": null,
+          "blocks": [
+            "carousel-product"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Brand Story Cards",
+          "selector": "body > main > div.section.cards-container:nth-of-type(5)",
+          "style": null,
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Email Signup",
+          "selector": "body > main > div.section.email-signup-container",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "body > main > div.section.email-signup-container"
+          ]
+        }
+      ]
+    }
+  ]
+}

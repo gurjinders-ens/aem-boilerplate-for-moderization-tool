@@ -16,6 +16,15 @@ export default function decorate(block) {
     const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
     img.closest('picture').replaceWith(optimizedPic);
   });
+
+  // Variant detection: product-category cards lead with a plain "eyebrow"
+  // paragraph (no <strong>) before the bold title; brand-story cards do not.
+  const hasEyebrow = [...ul.querySelectorAll('.cards-feature-card-body')].some((body) => {
+    const first = body.querySelector('p');
+    return first && !first.querySelector('strong') && !first.querySelector('a');
+  });
+  block.classList.add(hasEyebrow ? 'cards-feature-grid-3' : 'cards-feature-grid-2');
+
   block.textContent = '';
   block.append(ul);
 }

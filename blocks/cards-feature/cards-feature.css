@@ -38,22 +38,12 @@
   padding: 0;
 }
 
+/* Description / body paragraphs */
 .cards-feature .cards-feature-card-body > p {
   margin: 0.25em 0;
-}
-
-/* Description (plain paragraph, no strong, no link) */
-.cards-feature .cards-feature-card-body > p:not(:has(strong), :has(a)) {
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-color);
-}
-
-/* Title (bold) */
-.cards-feature .cards-feature-card-body > p:has(strong) {
-  margin: 12px 0 4px;
-  font-size: 22px;
-  line-height: 1.6;
 }
 
 .cards-feature .cards-feature-card-body strong {
@@ -61,14 +51,17 @@
   color: var(--text-color);
 }
 
-/* CTA link paragraph spacing */
-.cards-feature .cards-feature-card-body > p:has(> a) {
-  margin: 8px auto 0;
+/* Title (bold) */
+.cards-feature .cards-feature-card-body > p:has(strong),
+.cards-feature .cards-feature-card-body > p > strong {
+  margin-top: 12px;
+  font-size: 22px;
+  line-height: 1.6;
 }
 
-/* Eyebrow: first plain paragraph (no strong) overlaid in white on the image.
-   Only present in the 6-item product-category variant. */
-.cards-feature .cards-feature-card-body > p:first-child:not(:has(strong)) {
+/* Eyebrow: in the product-category (grid-3) variant, the first body paragraph
+   is a plain eyebrow line overlaid in white on the image. */
+.cards-feature-grid-3 .cards-feature-card-body > p:first-child {
   position: absolute;
   top: 0;
   left: 0;
@@ -113,13 +106,13 @@
 
 /* Desktop */
 @media (width >= 900px) {
-  /* Product-category variant (has an eyebrow overlay) -> 3 columns */
-  .cards-feature:has(.cards-feature-card-body > p:first-child:not(:has(strong))) > ul {
+  /* Product-category variant -> 3 columns */
+  .cards-feature-grid-3 > ul {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Brand-story variant (no eyebrow) -> 2 columns */
-  .cards-feature:not(:has(.cards-feature-card-body > p:first-child:not(:has(strong)))) > ul {
+  /* Brand-story variant -> 2 columns */
+  .cards-feature-grid-2 > ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -1,0 +1,54 @@
+/* Promo banner: full-bleed pale-blue band, centered image + text. */
+.promo-banner-container .promo-banner-wrapper,
+.section.promo-banner-container > div {
+  max-width: none;
+  padding: 0;
+}
+
+.promo-banner.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 24px;
+  background-color: #d7e3e6;
+}
+
+.promo-banner.block > div {
+  display: contents;
+}
+
+.promo-banner .promo-banner-image {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.promo-banner .promo-banner-image img {
+  width: auto;
+  height: 56px;
+}
+
+.promo-banner .promo-banner-text {
+  flex: 0 1 auto;
+}
+
+.promo-banner .promo-banner-text p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+.promo-banner .promo-banner-text p + p {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+@media (width < 600px) {
+  .promo-banner.block {
+    flex-direction: column;
+    text-align: center;
+  }
+}
