@@ -26,12 +26,13 @@
 
 .promo-banner .promo-banner-image img {
   width: auto;
-  height: 200px;
+  height: 140px;
+  max-width: 100%;
 }
 
 .promo-banner .promo-banner-text {
   flex: 0 1 auto;
-  max-width: 640px;
+  max-width: 560px;
 }
 
 .promo-banner .promo-banner-text p {

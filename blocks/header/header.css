@@ -160,11 +160,18 @@ header nav .nav-tools .icon {
   height: 22px;
 }
 
-/* "Welcome" account item shows a greeting + a "Sign In or Register" line */
+/* "Welcome" account item: icon BESIDE a two-line label (not stacked) */
+header nav .nav-tools ul li.nav-account-welcome {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+}
+
 header nav .nav-account-label {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 header nav .nav-account-signin {

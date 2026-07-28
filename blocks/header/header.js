@@ -101,6 +101,9 @@ export default async function decorate(block) {
     const label = document.createElement('span');
     label.className = 'nav-account-label';
     if (/welcome/i.test(labelText)) {
+      // The "Welcome" item lays out icon-beside-text (two-line label);
+      // Support/Bag stack icon-above-label.
+      li.classList.add('nav-account-welcome');
       label.innerHTML = '<span class="nav-account-greeting">Welcome</span><span class="nav-account-signin">Sign In or Register</span>';
     } else {
       label.textContent = labelText;
