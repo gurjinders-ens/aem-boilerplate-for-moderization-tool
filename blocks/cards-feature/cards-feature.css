@@ -1,0 +1,125 @@
+/* Block: cards-feature -- design migrated from source computed styles */
+
+/* Grid: full width, no card borders. Mobile-first (1 col). */
+.cards-feature > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px 30px;
+}
+
+.cards-feature > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+}
+
+/* Image: 4/3 aspect, cover, no radius */
+.cards-feature .cards-feature-card-image {
+  line-height: 0;
+}
+
+.cards-feature .cards-feature-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Card body */
+.cards-feature .cards-feature-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+.cards-feature .cards-feature-card-body > p {
+  margin: 0.25em 0;
+}
+
+/* Description (plain paragraph, no strong, no link) */
+.cards-feature .cards-feature-card-body > p:not(:has(strong), :has(a)) {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Title (bold) */
+.cards-feature .cards-feature-card-body > p:has(strong) {
+  margin: 12px 0 4px;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.cards-feature .cards-feature-card-body strong {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* CTA link paragraph spacing */
+.cards-feature .cards-feature-card-body > p:has(> a) {
+  margin: 8px auto 0;
+}
+
+/* Eyebrow: first plain paragraph (no strong) overlaid in white on the image.
+   Only present in the 6-item product-category variant. */
+.cards-feature .cards-feature-card-body > p:first-child:not(:has(strong)) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 20px 12px 0;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* CTA links styled as bordered pill buttons */
+.cards-feature .cards-feature-card-body a:any-link {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border: 1px solid var(--link-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--link-color);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cards-feature .cards-feature-card-body a:hover {
+  background-color: var(--link-color);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+/* Tablet: 2 columns */
+@media (width >= 600px) {
+  .cards-feature > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (width >= 900px) {
+  /* Product-category variant (has an eyebrow overlay) -> 3 columns */
+  .cards-feature:has(.cards-feature-card-body > p:first-child:not(:has(strong))) > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Brand-story variant (no eyebrow) -> 2 columns */
+  .cards-feature:not(:has(.cards-feature-card-body > p:first-child:not(:has(strong)))) > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
