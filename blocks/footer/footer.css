@@ -1,7 +1,11 @@
 footer {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #48473f;
+  color: #fff;
   font-size: var(--body-font-size-xs);
+}
+
+footer a:any-link {
+  color: #fff;
 }
 
 footer .footer > div {
@@ -34,7 +38,7 @@ footer .footer > div:last-child {
   align-items: center;
   gap: 12px;
   text-align: center;
-  border-top: 1px solid rgb(0 0 0 / 8%);
+  border-top: 1px solid rgb(255 255 255 / 15%);
 }
 
 footer .footer > div:last-child img {

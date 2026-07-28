@@ -1,5 +1,13 @@
 /* carousel-product: horizontal product shelf (matches source .slider) */
 
+/* Section heading ("New Arrivals/Top Picks") — centered, matches source */
+.carousel-product-container .default-content-wrapper h1,
+.carousel-product-container .default-content-wrapper h2,
+.carousel-product-container .default-content-wrapper h3 {
+  text-align: center;
+  margin: 0 0 16px;
+}
+
 .carousel-product {
   position: relative;
 }
