@@ -75,10 +75,12 @@
   line-height: 1.2;
 }
 
-/* CTA links styled as bordered pill buttons */
+/* CTA links styled as bordered pill buttons — fixed width, centered
+   (matches source: inline-block, ~179px) */
 .cards-feature .cards-feature-card-body a:any-link {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 179px;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 8px 16px;
   border: 1px solid var(--link-color);

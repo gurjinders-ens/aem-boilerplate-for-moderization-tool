@@ -8,22 +8,33 @@ footer a:any-link {
   color: #fff;
 }
 
-footer .footer > div {
+/* The footer fragment renders as .footer.block > div(wrapper) > .section (×2).
+   Cap the content at 1440, center it, and stack the two sections vertically. */
+footer .footer.block > div {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
   margin: auto;
-  max-width: 1200px;
-  padding: 24px;
+  padding: 24px 32px;
+  box-sizing: border-box;
+}
+
+footer .footer.block > div > .section {
+  width: 100%;
 }
 
 footer .footer p {
   margin: 0;
 }
 
-/* link row */
+/* link row — spread across the full content width */
 footer .footer ul {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
   gap: 32px;
-  margin: 0;
+  margin: 0 0 24px;
   padding: 0;
   list-style: none;
   font-weight: 500;
@@ -31,23 +42,31 @@ footer .footer ul {
 
 footer .footer ul li { font-size: 14px; }
 
-/* logo + copyright + country block */
-footer .footer > div:last-child {
+/* logo + copyright + country block — the second section */
+footer .footer.block > div > .section:last-child .default-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   text-align: center;
+  padding-top: 24px;
   border-top: 1px solid rgb(255 255 255 / 15%);
 }
 
-footer .footer > div:last-child img {
+footer .footer .icon-american-flag,
+footer .footer .icon-american-flag img {
+  width: 24px;
+  height: 24px;
+}
+
+footer .footer .default-content-wrapper p a img {
   width: auto;
   height: 40px;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 24px 32px;
-  }
+/* country line: flag icon + label */
+footer .footer .default-content-wrapper p:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }

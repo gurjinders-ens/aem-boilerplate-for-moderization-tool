@@ -103,6 +103,13 @@ function createSlide(row, slideIndex, carouselId) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
   }
 
+  // Wrap the slide's cells in an inner card so the slide's padding shows the
+  // page background between cards (matches the source's gapped shelf).
+  const card = document.createElement('div');
+  card.className = 'carousel-product-card';
+  while (slide.firstChild) card.append(slide.firstChild);
+  slide.append(card);
+
   return slide;
 }
 

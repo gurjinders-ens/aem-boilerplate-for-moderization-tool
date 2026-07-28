@@ -86,6 +86,31 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) buildSearch(navTools);
 
+  // Account items: "Welcome" gets a secondary "Sign In or Register" line;
+  // each item's label is wrapped so the icon can stack above it.
+  const accountItems = navTools ? navTools.querySelectorAll('ul > li') : [];
+  accountItems.forEach((li) => {
+    const icon = li.querySelector('.icon');
+    // remaining text nodes form the label
+    const labelText = [...li.childNodes]
+      .filter((n) => n.nodeType === Node.TEXT_NODE)
+      .map((n) => n.textContent.trim())
+      .join(' ')
+      .trim();
+    if (!labelText) return;
+    const label = document.createElement('span');
+    label.className = 'nav-account-label';
+    if (/welcome/i.test(labelText)) {
+      label.innerHTML = '<span class="nav-account-greeting">Welcome</span><span class="nav-account-signin">Sign In or Register</span>';
+    } else {
+      label.textContent = labelText;
+    }
+    // remove the bare text nodes, keep the icon, append structured label
+    [...li.childNodes].forEach((n) => { if (n.nodeType === Node.TEXT_NODE) n.remove(); });
+    if (icon) icon.after(label);
+    else li.append(label);
+  });
+
   await decorateIcons(nav);
 
   // hamburger for mobile

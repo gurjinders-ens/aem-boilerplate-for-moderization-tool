@@ -1,8 +1,11 @@
-/* Email/SMS signup — visual form matching the source. */
+/* Email/SMS signup — visual form matching the source. Left-aligned column
+   constrained to ~590px (matches source width). */
 .email-signup.block {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 590px;
+  margin: 0;
   padding: 24px 0;
 }
 

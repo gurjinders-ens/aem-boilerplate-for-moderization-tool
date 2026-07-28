@@ -297,22 +297,28 @@ main img {
   width: 100%;
 }
 
-/* sections — source uses flush (0-gap) full-width sections with 64px
-   vertical padding and edge-to-edge content (no max-width cap) */
+/* sections — source uses flush (0-gap) full-width bands with 64px vertical
+   padding; inner content is capped at 1440px and centered. */
 main > .section {
   margin: 0;
   padding: 64px 32px;
 }
 
 main > .section > div {
-  max-width: none;
+  max-width: 1440px;
   margin: auto;
 }
 
-/* full-bleed sections (hero, promo) manage their own padding */
+/* full-bleed sections (hero, promo) span edge-to-edge and manage their own
+   padding; their inner content is not capped. */
 main > .section.columns-hero-container,
 main > .section.promo-banner-container {
   padding: 0;
+}
+
+main > .section.columns-hero-container > div,
+main > .section.promo-banner-container > div {
+  max-width: none;
 }
 
 main > .section:first-of-type {
