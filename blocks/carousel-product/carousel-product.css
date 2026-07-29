@@ -47,6 +47,7 @@
 }
 
 .carousel-product .carousel-product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -59,7 +60,6 @@
 
 /* Image cell */
 .carousel-product .carousel-product-slide-image {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
