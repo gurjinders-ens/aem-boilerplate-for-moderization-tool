@@ -17,18 +17,6 @@ header nav {
   font-family: var(--body-font-family);
 }
 
-/* Inner content of each header row centers within a 1440px cap so the rows
-   align with page content on wide viewports. */
-header nav .nav-partners,
-header nav .nav-tools .default-content-wrapper,
-header nav .nav-sections ul {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  box-sizing: border-box;
-}
-
 header nav p {
   margin: 0;
   line-height: 1;
@@ -39,14 +27,22 @@ header nav a:any-link {
   text-decoration: none;
 }
 
-/* Row 1 — partner brand bar (white, partner logos aligned left) */
+/* Row 1 — partner brand bar: full-bleed white background, inner content
+   inset into a centered 1440px column that aligns with page content. */
 header nav .nav-partners {
+  background-color: #fff;
+  padding: 5px 16px;
+}
+
+header nav .nav-partners .default-content-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 24px;
-  background-color: #fff;
-  padding: 5px 16px;
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 header nav .nav-partners p {
@@ -72,10 +68,12 @@ header nav .nav-tools {
 
 header nav .nav-tools .default-content-wrapper {
   display: flex;
-  flex: 1 1 auto;
   align-items: center;
   gap: 24px;
-  margin: 0;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 header nav .nav-tools .default-content-wrapper > p,
@@ -126,6 +124,13 @@ header nav .nav-search-submit {
   padding: 0;
   background-color: #000;
   cursor: pointer;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+/* turns red on hover, matching the source search control */
+header nav .nav-search-submit:hover {
+  background-color: #a64241;
+  border-color: #a64241;
 }
 
 header nav .nav-search-submit .icon {
@@ -179,11 +184,17 @@ header nav .nav-account-signin {
   white-space: nowrap;
 }
 
-/* Row 3 — main nav links (beige) */
+/* Row 3 — main nav links (beige). No divider line above the links. */
 header nav .nav-sections {
   background-color: var(--background-color);
-  border-top: 1px solid rgb(0 0 0 / 8%);
   padding: 0 16px;
+}
+
+header nav .nav-sections .default-content-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 header nav .nav-sections ul {
