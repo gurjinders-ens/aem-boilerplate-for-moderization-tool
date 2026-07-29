@@ -157,7 +157,7 @@
    left/right edges of the shelf, vertically centred on the product image. */
 .carousel-product .carousel-product-navigation-buttons {
   position: absolute;
-  top: 12px; /* card padding */
+  top: 40px; /* track pad 16 + slide pad 12 + card pad 12 → image top */
   left: 0;
   right: 0;
   height: 208px; /* image band — centres the arrows on the product image */
@@ -166,6 +166,14 @@
   justify-content: space-between;
   pointer-events: none;
   z-index: 2;
+}
+
+.carousel-product .carousel-product-navigation-buttons button.slide-prev {
+  transform: translateX(-50%);
+}
+
+.carousel-product .carousel-product-navigation-buttons button.slide-next {
+  transform: translateX(50%);
 }
 
 .carousel-product .carousel-product-navigation-buttons button {
