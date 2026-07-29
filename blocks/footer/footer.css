@@ -42,19 +42,19 @@ footer .footer ul {
 
 footer .footer ul li { font-size: 14px; }
 
-/* logo + copyright + country block — the second section, centred with a
-   visible divider separating it from the links row above (matches target). */
+/* logo + copyright + country block — the second section.
+   Horizontal row: logo far-left, copyright centred, flag/country far-right
+   (matches the source footer). No divider. */
 footer .footer.block > div > .section:last-child {
-  padding-top: 24px;
-  border-top: 1px solid rgb(255 255 255 / 30%);
+  padding-top: 40px;
 }
 
 footer .footer.block > div > .section:last-child .default-content-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 12px;
-  text-align: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 footer .footer .icon-american-flag,
@@ -73,4 +73,20 @@ footer .footer .default-content-wrapper p:last-child {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
+}
+
+/* copyright sits centred in the middle of the row */
+footer .footer.block > div > .section:last-child .default-content-wrapper p:nth-child(2) {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* Mobile: stack logo / copyright / country vertically, centred */
+@media (width < 600px) {
+  footer .footer.block > div > .section:last-child .default-content-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
 }
