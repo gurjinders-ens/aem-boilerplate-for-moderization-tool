@@ -40,23 +40,48 @@ export function showSlide(block, slideIndex = 0) {
   });
 }
 
+/**
+ * Dim the prev/next buttons when the shelf is scrolled to its start/end,
+ * signalling to the user that no further scrolling is possible in that
+ * direction (matches the source behaviour).
+ */
+function updateEndStates(block) {
+  const track = block.querySelector('.carousel-product-slides');
+  const prev = block.querySelector('.slide-prev');
+  const next = block.querySelector('.slide-next');
+  if (!track || !prev || !next) return;
+  const maxScroll = track.scrollWidth - track.clientWidth;
+  const TOL = 8; // tolerance for the track's side padding / sub-pixel scroll
+  const atStart = track.scrollLeft <= TOL;
+  const atEnd = track.scrollLeft >= maxScroll - TOL;
+  prev.classList.toggle('is-disabled', atStart);
+  next.classList.toggle('is-disabled', atEnd || maxScroll <= TOL);
+}
+
 function bindEvents(block) {
+  const prev = block.querySelector('.slide-prev');
+  const next = block.querySelector('.slide-next');
+
   const slideIndicators = block.querySelector('.carousel-product-slide-indicators');
-  if (!slideIndicators) return;
-
-  slideIndicators.querySelectorAll('button').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const slideIndicator = e.currentTarget.parentElement;
-      showSlide(block, parseInt(slideIndicator.dataset.targetSlide, 10));
+  if (slideIndicators) {
+    slideIndicators.querySelectorAll('button').forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const slideIndicator = e.currentTarget.parentElement;
+        showSlide(block, parseInt(slideIndicator.dataset.targetSlide, 10));
+      });
     });
-  });
+  }
 
-  block.querySelector('.slide-prev').addEventListener('click', () => {
-    showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
-  });
-  block.querySelector('.slide-next').addEventListener('click', () => {
-    showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-  });
+  if (prev) {
+    prev.addEventListener('click', () => {
+      showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
+    });
+  }
+  if (next) {
+    next.addEventListener('click', () => {
+      showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+    });
+  }
 
   const slideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -66,6 +91,14 @@ function bindEvents(block) {
   block.querySelectorAll('.carousel-product-slide').forEach((slide) => {
     slideObserver.observe(slide);
   });
+
+  // end-of-scroll opacity feedback on the prev/next buttons
+  const track = block.querySelector('.carousel-product-slides');
+  if (track) {
+    track.addEventListener('scroll', () => updateEndStates(block), { passive: true });
+    window.addEventListener('resize', () => updateEndStates(block));
+    updateEndStates(block);
+  }
 }
 
 function createSlide(row, slideIndex, carouselId) {

@@ -100,8 +100,13 @@
   text-align: left;
 }
 
-.carousel-product .carousel-product-slide-content p {
+.carousel-product .carousel-product-slide-content > p {
   margin: 0;
+}
+
+/* keep the 16px space between title and price (matches source) */
+.carousel-product .carousel-product-slide-content > p.carousel-product-slide-price {
+  margin-top: 16px;
 }
 
 /* Product title -- reset EDS auto button decoration back to plain text */
@@ -148,13 +153,14 @@
   color: rgb(72 71 69);
 }
 
-/* Prev/Next chevron controls */
+/* Prev/Next chevron controls — circular white buttons pinned to the very
+   left/right edges of the shelf, vertically centred on the product image. */
 .carousel-product .carousel-product-navigation-buttons {
   position: absolute;
-  top: 45%;
+  top: 12px; /* card padding */
   left: 0;
   right: 0;
-  transform: translateY(-50%);
+  height: 208px; /* image band — centres the arrows on the product image */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -165,21 +171,29 @@
 .carousel-product .carousel-product-navigation-buttons button {
   pointer-events: auto;
   position: relative;
+  flex: 0 0 auto;
   width: 36px;
   height: 36px;
   margin: 0;
   padding: 0;
+  border: 0;
   border-radius: 40px;
   background-color: rgb(255 255 255);
   box-shadow: rgb(38 38 38 / 10%) 0 4px 8px 0;
   color: rgb(0 0 0);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: opacity 0.2s, background-color 0.2s;
 }
 
 .carousel-product .carousel-product-navigation-buttons button:hover,
 .carousel-product .carousel-product-navigation-buttons button:focus-visible {
   background-color: rgb(240 235 226);
+}
+
+/* dimmed when the shelf can't scroll further in that direction */
+.carousel-product .carousel-product-navigation-buttons button.is-disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .carousel-product .carousel-product-navigation-buttons button::after {
