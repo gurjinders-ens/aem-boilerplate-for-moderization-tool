@@ -6,12 +6,9 @@
 }
 
 .promo-banner.block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  min-height: 399px;
-  padding: 40px 24px;
+  position: relative;
+  min-height: 300px;
+  padding: 0;
   background-color: #d7e3e6;
 }
 
@@ -19,45 +16,66 @@
   display: contents;
 }
 
+/* Full-bleed background artwork (phone + pale-blue fill baked into one image) */
 .promo-banner .promo-banner-image {
-  flex: 0 0 auto;
+  position: absolute;
+  inset: 0;
   line-height: 0;
 }
 
 .promo-banner .promo-banner-image img {
-  width: auto;
-  height: 140px;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
 }
 
+/* Copy overlaid on the right half, left-aligned (matches source) */
 .promo-banner .promo-banner-text {
-  flex: 0 1 auto;
-  max-width: 560px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 50%;
+  margin-left: auto;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 40px 40px 0;
 }
 
 .promo-banner .promo-banner-text p {
   margin: 0;
   font-size: 35px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--text-color);
 }
 
 .promo-banner .promo-banner-text p + p {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 16px;
+  font-size: 16px;
   font-weight: 400;
 }
 
 @media (width < 900px) {
-  .promo-banner.block { padding: 32px 24px; }
-
   .promo-banner .promo-banner-text p { font-size: 24px; }
 }
 
 @media (width < 600px) {
-  .promo-banner.block {
-    flex-direction: column;
+  .promo-banner.block { min-height: 0; }
+
+  .promo-banner .promo-banner-image {
+    position: relative;
+    inset: auto;
+  }
+
+  .promo-banner .promo-banner-image img { height: auto; }
+
+  .promo-banner .promo-banner-text {
+    width: 100%;
+    min-height: 0;
+    padding: 24px;
     text-align: center;
   }
 }

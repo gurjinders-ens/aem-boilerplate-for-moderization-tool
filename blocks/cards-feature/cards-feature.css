@@ -60,19 +60,24 @@
 }
 
 /* Eyebrow: in the product-category (grid-3) variant, the first body paragraph
-   is a plain eyebrow line overlaid in white on the image. */
+   is a plain eyebrow line overlaid in white, centred over the image. */
 .cards-feature-grid-3 .cards-feature-card-body > p:first-child {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3; /* exactly covers the 4/3 image so text centres on it */
   margin: 0;
-  padding: 20px 12px 0;
+  padding: 0 16px;
   color: #fff;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.2;
+  text-align: center;
 }
 
 /* CTA links styled as bordered pill buttons — fixed width, centered
