@@ -72,14 +72,21 @@ function bindEvents(block) {
     });
   }
 
-  if (prev) {
+  // Continuous shelf: prev/next scroll the track by roughly one card width.
+  const track = block.querySelector('.carousel-product-slides');
+  const scrollByAmount = () => {
+    const firstSlide = block.querySelector('.carousel-product-slide');
+    if (firstSlide) return firstSlide.getBoundingClientRect().width;
+    return track ? track.clientWidth : 0;
+  };
+  if (prev && track) {
     prev.addEventListener('click', () => {
-      showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
+      track.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
     });
   }
-  if (next) {
+  if (next && track) {
     next.addEventListener('click', () => {
-      showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+      track.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
     });
   }
 
@@ -93,7 +100,6 @@ function bindEvents(block) {
   });
 
   // end-of-scroll opacity feedback on the prev/next buttons
-  const track = block.querySelector('.carousel-product-slides');
   if (track) {
     track.addEventListener('scroll', () => updateEndStates(block), { passive: true });
     window.addEventListener('resize', () => updateEndStates(block));
