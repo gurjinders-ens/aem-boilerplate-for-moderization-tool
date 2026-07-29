@@ -42,15 +42,19 @@ footer .footer ul {
 
 footer .footer ul li { font-size: 14px; }
 
-/* logo + copyright + country block — the second section */
+/* logo + copyright + country block — the second section, centred with a
+   visible divider separating it from the links row above (matches target). */
+footer .footer.block > div > .section:last-child {
+  padding-top: 24px;
+  border-top: 1px solid rgb(255 255 255 / 30%);
+}
+
 footer .footer.block > div > .section:last-child .default-content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   text-align: center;
-  padding-top: 24px;
-  border-top: 1px solid rgb(255 255 255 / 15%);
 }
 
 footer .footer .icon-american-flag,
