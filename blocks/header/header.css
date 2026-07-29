@@ -31,7 +31,7 @@ header nav a:any-link {
    inset into a centered 1440px column that aligns with page content. */
 header nav .nav-partners {
   background-color: #fff;
-  padding: 5px 16px;
+  padding: 12px 16px;
 }
 
 header nav .nav-partners .default-content-wrapper {
@@ -101,14 +101,14 @@ header nav .nav-search {
 header nav .nav-search input {
   flex: 1 1 auto;
   box-sizing: border-box;
-  height: 40px;
+  height: 53px;
   border: 1px solid #000;
   border-right: 0;
   border-radius: 2px 0 0 2px;
-  padding: 8px 12px;
+  padding: 16px 12px;
   background-color: var(--background-color);
   font: inherit;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-color);
 }
 
@@ -116,8 +116,8 @@ header nav .nav-search-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 40px;
+  width: 53px;
+  height: 53px;
   margin: 0;
   border: 1px solid #000;
   border-radius: 0 2px 2px 0;
@@ -160,9 +160,9 @@ header nav .nav-tools ul li {
   line-height: 1.2;
 }
 
-header nav .nav-tools .icon {
-  width: 22px;
-  height: 22px;
+header nav .nav-tools ul .icon {
+  width: 30px;
+  height: 30px;
 }
 
 /* "Welcome" account item: icon BESIDE a two-line label (not stacked) */
@@ -184,10 +184,11 @@ header nav .nav-account-signin {
   white-space: nowrap;
 }
 
-/* Row 3 — main nav links (beige). No divider line above the links. */
+/* Row 3 — main nav links (beige). No divider line above the links.
+   Links sit flush at the bottom of the header, matching the source. */
 header nav .nav-sections {
   background-color: var(--background-color);
-  padding: 0 16px;
+  padding: 0 16px 10px;
 }
 
 header nav .nav-sections .default-content-wrapper {
@@ -203,7 +204,7 @@ header nav .nav-sections ul {
   justify-content: center;
   gap: 24px;
   margin: 0 auto;
-  padding: 8px 0;
+  padding: 0;
   list-style: none;
 }
 
