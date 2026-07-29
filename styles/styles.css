@@ -325,6 +325,12 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+/* Collapse empty trailing sections (e.g. the stripped metadata block) so they
+   don't add padding between the last content section and the footer. */
+main > .section:empty {
+  padding: 0;
+}
+
 @media (width < 900px) {
   main > .section {
     padding: 32px 16px;
